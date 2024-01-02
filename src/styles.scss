@@ -1,0 +1,44 @@
+//Root import
+@import './components/searchbox/searchboxCompo.scss';
+@import './components/breadcrumbs/breadcrumbsCompo.scss';
+@import './components/productItem/productItemCompo.scss';
+@import './pages/home/home.scss';
+@import './pages/product/product.scss';
+@import './pages/landing/landing.scss';
+
+body{
+    background-color: $meli-light-gray;
+}
+
+.logo-global{
+    width: 45px;
+    height: 30px;
+}
+
+.hand{
+    cursor: pointer;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.general-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    .gridly{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+}

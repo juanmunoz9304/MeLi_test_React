@@ -1,0 +1,24 @@
+@import '../../Pallete.scss';
+
+.breadcrumbs-container{
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p{
+        font-size: 14px;
+        color: $meli-gray;
+        margin-right: 4px;
+    }
+    span{
+        font-size: 14px;
+        color: $meli-gray;
+        margin-right: 4px;
+    }
+
+    p:last-child {
+        font-weight: bold;
+    }
+}

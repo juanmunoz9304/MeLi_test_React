@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HomeContainer } from './pages/home/homeContainer';
+import { ProductContainer } from './pages/product/productContainer';
+import { SearchboxCompo } from './components/searchbox/searchboxCompo';
+import './styles.scss';
 
-function App() {
+const App: React.FC = () => {
+
+  const [productResults, setProductResults] = useState<any>(); //Evitando complejizar con redux
+  const [auxCategories, setAuxCategories] = useState<string>('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <SearchboxCompo setProductResults={setProductResults} />
+      <div className='general-container'>
+        <div className='gridly'>
+          <Routes>
+            <Route path='/' element={<HomeContainer productResults={productResults} auxCategories={auxCategories} setAuxCategories={setAuxCategories} />}/>
+            <Route path='/items' element={<HomeContainer productResults={productResults} auxCategories={auxCategories} setAuxCategories={setAuxCategories} />} />
+            <Route path='/items/:id' element={<ProductContainer productResults={productResults} auxCategories={auxCategories} setAuxCategories={setAuxCategories} />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
